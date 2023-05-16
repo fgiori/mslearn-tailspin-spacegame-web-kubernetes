@@ -67,7 +67,7 @@ stages:
               azureSubscriptionConnection: 'Kubernetes Cluster Connection'
               azureResourceGroup: 'jjframeworks-resource_group'
               kubernetesCluster: 'tailspinspacegame-23085'
-              namespace: 'default'
+              namespace: 'kube-system'
           - task: KubernetesManifest@1
             displayName: Deploy to Kubernetes cluster
             inputs:
@@ -76,7 +76,7 @@ stages:
               azureSubscriptionConnection: 'Kubernetes Cluster Connection'
               azureResourceGroup: 'jjframeworks-resource_group'
               kubernetesCluster: 'tailspinspacegame-23085'
-              namespace: 'default'
+              namespace: 'kube-system'
               manifests: |
                 $(Pipeline.Workspace)/manifests/deployment.yml
                 $(Pipeline.Workspace)/manifests/service.yml

@@ -57,11 +57,6 @@ stages:
           steps:
           - download: current
             artifact: manifests
-          - task: AzureWebAppContainer@1
-            inputs:
-              appName: $(WebAppName)
-              azureSubscription: 'JJFrameworks(c7e82345-16c1-4ba8-8cd3-bd09d544b0e2)'
-              imageName: $(RegistryName)/$(webRepository):$(build.buildId)
           - task: KubernetesManifest@1
             displayName: Create imagePullSecret
             inputs:
